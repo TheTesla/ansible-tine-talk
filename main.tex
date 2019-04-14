@@ -27,6 +27,7 @@
 \usepackage{qrcode}
 \usepackage{listings}
 \usepackage{minted}
+\usepackage[export]{adjustbox}
 
 
 
@@ -471,7 +472,6 @@
 
 \begin{frame}[fragile]{\insertsection}{\insertsubsection}
 	\vspace{-0.5cm}
-	
 	\textbf{Config -- all passwords}\\
 	vars/passwords.yml
 	\begin{minted}[gobble=2,frame=single,linenos]{yaml}
@@ -481,6 +481,67 @@
 		                                      digits') }}"
 		[...]
 	\end{minted}
+\end{frame}	
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	\vspace{-0.5cm}
+	\textbf{Start Ansible-Playbook}\\
+	\begin{minted}[gobble=2,frame=single,linenos]{bash}
+		ansible-playbook deploy_playbook.yml -i hosts
+	\end{minted}
+	
+	\begin{verbatim}
+	PLAY [crm-server] *********************************
+	
+	TASK [up : Debug host] ****************************
+	ok: [92.60.36.246 -> localhost] => {
+	    "msg": "92.60.36.246"
+	}
+	
+	TASK [up : Waiting for startup] *******************
+	ok: [92.60.36.246 -> localhost]
+	\end{verbatim}
+\end{frame}
+
+\subsection{Setup}
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	\vspace{-0.5cm}
+	Get tine20 admin password
+	\begin{minted}[gobble=2,frame=single,linenos]{bash}
+		cat credentials/92.60.36.246/tine20_admin_passwd.txt
+	\end{minted}
+	Login\\
+	\includegraphics[width=10.5cm]{tine20login.png}
+\end{frame}	
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	\vspace{-0.5cm}
+	Add user\\
+	\includegraphics[width=9cm]{tine20adduser.png}\\
+	\textbf{Important:} User must login and relogin to use email.
+\end{frame}	
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	\vspace{-0.5cm}
+	ActiveSync autodiscovery on Android\\
+	\includegraphics[width=3.5cm,valign=t]{autodiscoverAndroid1.jpg}
+	\includegraphics[width=3.5cm,valign=t]{autodiscoverAndroid2.jpg}
+	\includegraphics[width=3.5cm,valign=t]{autodiscoverAndroid3.jpg}
+
+	\textbf{Because:} \url{https://autodiscover.entroserv.de/autodiscover/autodiscover.php}
+\end{frame}	
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	\vspace{-0.5cm}
+	IMAP/SMTP autoconfig for Thunderbird\\
+	\includegraphics[width=9cm]{autoconfigTB1.png}\\
+\end{frame}	
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	\vspace{-0.5cm}
+	After $<1$ s\\
+	\includegraphics[width=9cm]{autoconfigTB2.png}\\
+	\textbf{Because:} \url{https://autoconfig.entroserv.de/mail/config-v1.1.xml}
 \end{frame}	
 
 \section{Discussion}
