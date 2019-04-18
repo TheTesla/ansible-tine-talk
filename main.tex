@@ -130,9 +130,9 @@
 	\end{frame}
 	
 	\begin{frame}{Content}
-		\begin{multicols}{2}
+		%\begin{multicols}{2}
 		\tableofcontents
-		\end{multicols}
+		%\end{multicols}
 		% You might wish to add the option [pausesections]
 	\end{frame}
 	
@@ -603,6 +603,67 @@
 	Signature added automatically (only tine20 and exchange)
 	\includegraphics[height=7cm]{signature.png}\\
 	Possible with IMAP?
+\end{frame}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	%\vspace{-0.5cm}
+	Adminpanel of Grav CMS
+	\includegraphics[height=7cm]{Grav.png}\\
+\end{frame}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	%\vspace{-0.5cm}
+	How the Webpage looks like
+	\includegraphics[height=7cm]{gravpage.png}\\
+\end{frame}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	%\vspace{-0.5cm}
+	Grav TOC needs plugin
+	\includegraphics[width=10.5cm]{gravplugins.png}\\
+\end{frame}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	%\vspace{-0.5cm}
+	Grav TOC configuration
+	\includegraphics[width=11cm]{gravtoc.png}\\
+\end{frame}
+
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	%\vspace{-0.5cm}
+	Grav TOC configuration
+	\begin{minted}[gobble=2,frame=single,linenos]{html+jinja}
+		{% if config.get('plugins.page-toc.active') or
+		      attribute(page.header, 'page-toc').active %}
+		  {% set table_of_contents = toc(page.content) %}
+		  {% if table_of_contents is not empty %}
+			<h4>Table of Contents</h4>
+			{{ toc(page.content) }}
+		  {% endif %}
+		{% endif %}
+	\end{minted}
+\end{frame}
+
+\section{ToDo}
+\section{Thanks}
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	%\vspace{-0.5cm}
+	\begin{itemize}
+		\item LDAP
+		\item Client certificate authentication
+		\item CalDav to Grav CMS events calendar
+		\item Sieve, CalDav, CardDav autoconfig
+		\item IMAP signature preview (if possible)
+		\item Mailman tine20 integration
+		\item ERP integration (also with GravCart)
+	\end{itemize}
+\end{frame}
+
+\section{Thanks}
+\begin{frame}[fragile]{\insertsection}{\insertsubsection}
+	%\vspace{-0.5cm}
+	\textbf{Thomas Leister} -- Mailserver-Howto
+	\url{https://thomas-leister.de/mailserver-debian-stretch/}
 \end{frame}
 
 \section{Discussion}
